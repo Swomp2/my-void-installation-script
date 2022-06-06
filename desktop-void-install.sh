@@ -282,4 +282,5 @@ fi
 #========================================================
 
 #The end
+sudo rm -r /${PWD}
 echo -e "${LYELLOW}Thank you for using my installation script :3${NORMAL}"
