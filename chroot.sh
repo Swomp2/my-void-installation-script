@@ -16,3 +16,4 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     sudo cp /etc/resolv.conf /mnt/etc
     sudo cp -r /${PWD} /mnt
     PS1='(chroot) # ' chroot /mnt /bin/bash
+fi
