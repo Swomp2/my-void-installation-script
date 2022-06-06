@@ -10,7 +10,9 @@ echo -e "${YELLOW}Do you want to chroot to /mnt? ${NORMAL}[${GREEN}Y${NORMAL}/${
 read
 
 if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
-    mount --rbind /sys /mnt/sys && mount --make-rslave /mnt/sys
-    mount --rbind /dev /mnt/dev && mount --make-rslave /mnt/dev
-    mount --rbind /proc /mnt/proc && mount --make-rslave /mnt/proc
+    sudo mount --rbind /sys /mnt/sys && mount --make-rslave /mnt/sys
+    sudo mount --rbind /dev /mnt/dev && mount --make-rslave /mnt/dev
+    sudo mount --rbind /proc /mnt/proc && mount --make-rslave /mnt/proc
+    sudo cp /etc/resolv.conf /mnt/etc
+    sudo cp -r /${PWD} /mnt
     PS1='(chroot) # ' chroot /mnt /bin/bash
