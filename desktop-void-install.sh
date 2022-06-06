@@ -19,31 +19,6 @@ clear
 
 echo -e "${LYELLOW}This script helps you to install DE and some useful programs on your ${LGREEN}Void Linux ${LYELLOW}:3\n${NORMAL}"
 
-#Did user use chroot?
-#========================================================
-echo -e "${YELLOW}Did you chroot to /mnt? ${NORMAL}[${RED}N${NORMAL}/${GREEN}y${NORMAL}]"
-read
-
-if [[ $REPLY = "no" || $REPLY = "n" || $REPLY = "N" || $REPLY = "No" || $REPLY = "" || $REPLY = " " ]]; then
-
-    echo -e "${YELLOW}Do you want to chroot to /mnt? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
-    read
-
-    if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
-    echo -e "${LMAGENTA}----------------------------------------"
-    mount --rbind /sys /mnt/sys && mount --make-rslave /mnt/sys
-    mount --rbind /dev /mnt/dev && mount --make-rslave /mnt/dev
-    mount --rbind /proc /mnt/proc && mount --make-rslave /mnt/proc
-    PS1='(chroot) # ' chroot /mnt /bin/bash
-    echo -e "----------------------------------------${NORMAL}"
-    else
-        echo -e "${RED}So, this script wont working if don't chroot to /mnt${NORMAL}"
-        exit
-    fi
-
-fi
-#========================================================
-
 #Chroot questions
 #========================================================
 echo -e "${YELLOW}Did you install your system via chroot? ${NORMAL}[${GREEN}N${NORMAL}/${RED}y${NORMAL}]"
