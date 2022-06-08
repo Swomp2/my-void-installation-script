@@ -26,7 +26,8 @@ restart  restarts your service
 add      adding your service to default level
 delete   removes your service from default level
 showas   shows available services
-show     shows all services at the default level${NORMAL}"
+show     shows all services at the default level
+help (-h, --help, h)shows this message${NORMAL}"
 
 elif [[ $1 = "showas" ]]; then
     ls /etc/sv
