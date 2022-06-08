@@ -11,7 +11,8 @@ LBLUE='\033[1;34m'
 LMAGENTA='\033[1;35m'
 
 if [[ `whoami` != "root" ]]; then
-    echo -e "${RED} You should execute this script as root user or via sudo <[*_*]>${NORMAL}"
+    clear
+    echo -e "${RED}You should execute this script as root user or via sudo <[*_*]>${NORMAL}"
     exit
 fi
 
@@ -57,7 +58,9 @@ fi
 echo -e "${YELLOW}Do you want to put dbus in autorun? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
 read
 if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
+    echo -e "${LMAGENTA}----------------------------------------"
     ln -s /etc/sv/dbus /etc/runit/runsvdir/default/
+    echo -e "----------------------------------------${NORMAL}"
 fi
 #========================================================
 
@@ -71,15 +74,16 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     echo -e "${LBLUE}Now I'll install elogind${NORMAL}"
     echo -e "${LMAGENTA}----------------------------------------"
     xbps-install elogind -y
+    echo -e "----------------------------------------${NORMAL}"
 
     echo -e "${YELLOW}Do you want to put elogind in autorun? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
     read
 
-    if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then 
+    if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
+        "${LMAGENTA}----------------------------------------"
         ln -s /etc/sv/elogind /etc/runit/runsvdir/default/
+        echo -e "----------------------------------------${NORMAL}"
     fi
-    
-    echo -e "----------------------------------------${NORMAL}"
 
 fi
 #========================================================
@@ -122,7 +126,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
             ln -s /etc/sv/sddm /etc/runit/runsvdir/default
         else 
 
-            echo -e "${LYELLOW}If you want to install another DM, you can enter the exact package name (or enter NO for skip)"
+            echo -e "${LYELLOW}If you want to install another DM, you can enter the exact package name (or enter 'NO' for skip)"
             echo -e "You can find your DM by 'xbps-query -Rs <pkg name>' ;)${NORMAL}"
             read
 
@@ -171,7 +175,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
             ln -s /etc/sv/gdm /etc/runit/runsvdir/default/
             echo -e "----------------------------------------${NORMAL}"
         else
-            echo -e "${LYELLOW}If you want to install another DM, you can enter the exact package name (or enter NO for skip)"
+            echo -e "${LYELLOW}If you want to install another DM, you can enter the exact package name (or enter 'NO' for skip)"
             echo -e "You can find your DM by 'xbps-query -Rs <pkg name>' ;)${NORMAL}"
             read
 
@@ -190,7 +194,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     elif [[ $REPLY = xfce4 ]]; then
         echo -e "\n${LBLUE}Now I'll install XFCE for you :3${NORMAL}\n"
 
-        echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter NO for skip)"
+        echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter 'NO' for skip)"
         echo -e "You can find your DM by 'xbps-query -Rs <pkg name>' ;)${NORMAL}"
         read
 
@@ -213,7 +217,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     elif [[ $REPLY = "mate" ]]; then
         echo -e "\n${LBLUE}Alright, I'll install Mate for you :3${NORMAL}\n"
 
-        echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter NO for skip)"
+        echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter 'NO' for skip)"
         echo -e "You can find your DM by 'xbps-query -Rs <pkg name>' ;)${NORMAL}"
         read
 
@@ -240,7 +244,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
         read
 
         if [[ $REPLY = "no" || $REPLY = "n" || $REPLY = "N" || $REPLY = "No" ]]; then
-            echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter NO for skip)"
+            echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter 'NO' for skip)"
             echo -e "You can find your DM by 'xbps-query -Rs <pkg name>' ;)${NORMAL}"
             read
 
@@ -275,7 +279,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
         read
 
         if [[ $REPLY = "no" || $REPLY = "n" || $REPLY = "N" || $REPLY = "No" ]]; then
-            echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter NO for skip)"
+            echo -e "${LYELLOW}If you want to install any DM, you can enter the exact package name (or enter 'NO' for skip)"
             echo -e "You can find your DM by 'xbps-query -Rs <pkg name>' ;)${NORMAL}"
             read
 
@@ -307,9 +311,9 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
 fi
 #========================================================
 
-#My services script install
+#My "service" script install
 #========================================================
-echo -e "${YELLOW}Do you want to install my service script? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+echo -e "${YELLOW}Do you want to install my 'service' script? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
 read
 
 if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
@@ -324,5 +328,5 @@ fi
 #========================================================
 
 #The end
-sudo rm -r /${PWD}
+rm -r /${PWD}
 echo -e "${LYELLOW}Thank you for using my installation script :3${NORMAL}"
