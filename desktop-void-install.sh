@@ -80,7 +80,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     read
 
     if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
-        "${LMAGENTA}----------------------------------------"
+        echo -e "${LMAGENTA}----------------------------------------"
         ln -s /etc/sv/elogind /etc/runit/runsvdir/default/
         echo -e "----------------------------------------${NORMAL}"
     fi
