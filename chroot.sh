@@ -6,7 +6,6 @@ GREEN='\033[32m'
 NORMAL='\033[0m'
 YELLOW='\033[33m'
 
-
 echo -e "${YELLOW}I can create a mount point /mnt/boot or /mnt/boot/efi${NORMAL}<-${YELLOW}(default). What point you need?${NORMAL}"
 
 if [[ $REPLY = "/mnt/boot/efi" || $REPLY = " " || $REPLY = "" ]]; then
