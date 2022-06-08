@@ -6,6 +6,15 @@ GREEN='\033[32m'
 NORMAL='\033[0m'
 YELLOW='\033[33m'
 
+
+echo -e "${YELLOW}I can create a mount point /mnt/boot or /mnt/boot/efi${NORMAL}<-${YELLOW}(default). What point you need?${NORMAL}"
+
+if [[ $REPLY = "/mnt/boot/efi" || $REPLY = " " || $REPLY = "" ]]; then
+    sudo mkdir /mnt/boot && sudo mkdir /mnt/boot/efi
+else 
+    mkdir /mnt/boot
+fi
+
 echo -e "${YELLOW}Do you want to chroot to /mnt? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
 read
 
