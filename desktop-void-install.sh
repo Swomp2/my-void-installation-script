@@ -121,9 +121,11 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
         read
 
         if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
+            echo -e "${LMAGENTA}----------------------------------------"
             xbps-install xorg-minimal
             xbps-install sddm
             ln -s /etc/sv/sddm /etc/runit/runsvdir/default
+            echo -e "----------------------------------------${NORMAL}"
         else 
 
             echo -e "${LYELLOW}If you want to install another DM, you can enter the exact package name (or enter 'NO' for skip)"
