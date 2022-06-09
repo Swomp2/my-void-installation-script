@@ -355,6 +355,13 @@ else
 fi
 #========================================================
 
-#The end
+#Auto-delete Installation script
+#========================================================
+echo -e "${LBLUE}Auto-delete Installation script :)${NORMAL}"
+echo -e "${LMAGENTA}----------------------------------------"
 rm -r /${PWD}
+echo -e "----------------------------------------${NORMAL}"
+#========================================================
+
+#The end
 echo -e "${LYELLOW}Thank you for using my installation script :3${NORMAL}"
