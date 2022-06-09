@@ -319,7 +319,7 @@ echo -e "${YELLOW}Do you want to install pulseaudio? ${NORMAL}[${GREEN}Y${NORMAL
 read
 
 if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
-    echo -e "{LBLUE}Now I'll install pulseaudio for you${NORMAL}"
+    echo -e "${LBLUE}Now I'll install pulseaudio for you${NORMAL}"
     echo -e "${LMAGENTA}----------------------------------------"
     xbps-install pulseaudio -y
     echo -e "----------------------------------------${NORMAL}"
