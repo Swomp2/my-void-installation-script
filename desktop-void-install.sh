@@ -32,7 +32,7 @@ if [[ $REPLY = "no" || $REPLY = "n" || $REPLY = "N" || $REPLY = "No" || $REPLY =
     if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
         echo -e "${LBLUE}So I'll update your installed xbps now${NORMAL}"
         echo -e "${LMAGENTA}----------------------------------------"
-        xbps-install -Syu
+        xbps-install -Su
         xbps-install -yu xbps
         echo -e "----------------------------------------${NORMAL}"
     fi
