@@ -32,7 +32,8 @@ if [[ $REPLY = "no" || $REPLY = "n" || $REPLY = "N" || $REPLY = "No" || $REPLY =
     if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
         echo -e "${LBLUE}So I'll update your installed xbps now${NORMAL}"
         echo -e "${LMAGENTA}----------------------------------------"
-        xbps-install -Syu xbps
+        xbps-install -Syu
+        xbps-install -yu xbps
         echo -e "----------------------------------------${NORMAL}"
     fi
 fi
@@ -336,7 +337,7 @@ read
 if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
     echo -e "${LMAGENTA}----------------------------------------"
     xbps-install void-repo-multilib -y 
-    xbps-install -Su
+    xbps-install -Syu
     echo -e "----------------------------------------${NORMAL}"
 fi
 #========================================================
