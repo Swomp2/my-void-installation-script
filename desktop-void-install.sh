@@ -311,6 +311,34 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
 fi
 #========================================================
 
+#pulseaudio
+#========================================================
+echo -e "${YELLOW}Do you want to install pulseaudio? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
+    echo -e "{LBLUE}Now I'll install pulseaudio for you${NORMAL}"
+    echo -e "${LMAGENTA}----------------------------------------"
+    xbps-install pulseaudio -y
+    echo -e "----------------------------------------${NORMAL}"
+else 
+    echo -e "{LBLUE}So, you'll be without any sound${NORMAL}"
+fi
+#========================================================
+
+#multilib repo
+#========================================================
+echo -e "${YELLOW}Do you want to install multilib repo? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
+read
+
+if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY = " " || $REPLY = "" ]]; then
+    echo -e "${LMAGENTA}----------------------------------------"
+    xbps-install void-repo-multilib -y 
+    xbps-install -Su
+    echo -e "----------------------------------------${NORMAL}"
+fi
+#========================================================
+
 #My "service" script install
 #========================================================
 echo -e "${YELLOW}Do you want to install my 'service' script? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
