@@ -353,7 +353,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     cp /${PWD}/service /usr/bin
     echo -e "----------------------------------------${NORMAL}"
 else
-    echo -e "{LBLUE}So sad${NORMAL}"
+    echo -e "${LBLUE}So sad${NORMAL}"
 fi
 #========================================================
 
