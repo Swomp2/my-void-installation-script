@@ -6,14 +6,35 @@ GREEN='\033[32m'
 NORMAL='\033[0m'
 YELLOW='\033[33m'
 
+#create /mnt/boot
+#========================================================
 echo -e "${YELLOW}I can create a mount point /mnt/boot or /mnt/boot/efi${NORMAL}<-${YELLOW}(default). What point you need?${NORMAL}"
 
 if [[ $REPLY = "/mnt/boot/efi" || $REPLY = " " || $REPLY = "" ]]; then
     sudo mkdir /mnt/boot && sudo mkdir /mnt/boot/efi
 else 
-    mkdir /mnt/boot
+    sudo mkdir /mnt/boot
 fi
+#========================================================
 
+#mount to /mnt/boot
+#========================================================
+echo -e "${YELLOW}Which partition should be mounted in ${REPLY}?${NORMAL}"
+read
+
+sudo mount ${REPLY}
+#========================================================
+
+#mount to /mnt
+#========================================================
+echo -e "${YELLOW}Which partition should be mounted in /mnt?${NORMAL}"
+read
+
+sudo mount ${REPLY}
+#========================================================
+
+#chroot
+#========================================================
 echo -e "${YELLOW}Do you want to chroot to /mnt? ${NORMAL}[${GREEN}Y${NORMAL}/${RED}n${NORMAL}]"
 read
 
@@ -25,3 +46,4 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     sudo cp -r /${PWD} /mnt
     PS1='(chroot) # ' chroot /mnt /bin/bash
 fi
+#========================================================
