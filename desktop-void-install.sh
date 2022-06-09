@@ -324,7 +324,7 @@ if [[ $REPLY = "yes" || $REPLY = "y" || $REPLY = "Y" || $REPLY = "Yes" || $REPLY
     xbps-install pulseaudio -y
     echo -e "----------------------------------------${NORMAL}"
 else 
-    echo -e "{LBLUE}So, you'll be without any sound${NORMAL}"
+    echo -e "${LBLUE}So, you'll be without any sound${NORMAL}"
 fi
 #========================================================
 
