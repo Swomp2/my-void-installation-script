@@ -6,9 +6,21 @@ GREEN='\033[32m'
 NORMAL='\033[0m'
 YELLOW='\033[33m'
 
+#check for root 
+#========================================================
+if [[ `whoami` != "root" ]]; then
+    clear
+    echo -e "${RED}You should execute this script as root user or via sudo <[*_*]>${NORMAL}"
+    exit
+fi
+#========================================================
+
 #create /mnt/boot
 #========================================================
 echo -e "${YELLOW}I can create a mount point /mnt/boot or /mnt/boot/efi${NORMAL}<-${YELLOW}(default). What point you need?${NORMAL}"
+read
+
+mount_point=${REPLY}
 
 if [[ $REPLY = "/mnt/boot/efi" || $REPLY = " " || $REPLY = "" ]]; then
     sudo mkdir /mnt/boot && sudo mkdir /mnt/boot/efi
@@ -22,7 +34,7 @@ fi
 echo -e "${YELLOW}Which partition should be mounted in ${REPLY}?${NORMAL}"
 read
 
-sudo mount ${REPLY}
+sudo mount ${REPLY} ${mount_point}
 #========================================================
 
 #mount to /mnt
@@ -30,7 +42,7 @@ sudo mount ${REPLY}
 echo -e "${YELLOW}Which partition should be mounted in /mnt?${NORMAL}"
 read
 
-sudo mount ${REPLY}
+sudo mount ${REPLY} /mnt
 #========================================================
 
 #chroot
